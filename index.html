@@ -1,0 +1,208 @@
+<<!DOCTYPE html> 
+<head>
+<title> 
+</title> 
+<style> 
+table 
+{ 
+color:white; 
+border-radius:20px; 
+} 
+#Button 
+{
+background-color:green; 
+color:white; 
+height:32px; 
+width:85px; 
+border-radius:25px; 
+}
+ 
+body 
+{
+background-image: url('B3.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover; 
+background:liner-gradient(red,blue); 
+} 
+</style> 
+</head> 
+<body>
+
+<marquee><center><h1 style="color:RED;">Important Events In 2020 We All Would Be Looking Forward To </h1></center></marquee>
+<center> 
+<br>
+<h2 style="background-color:GRAY;">Registration Form</h2>
+</center>
+<br> 
+
+<form>
+<div id="containet">
+<table border="0" bgcolor="black" align="center" cellspacing="20">
+<tr>
+<td><div class="input" >Name</td>
+<td><input id="fname" type="text"  placeholder="First nd Last only" size="25"required></td>
+</div>
+</tr>
+<tr> 
+<td><div class="input">Date Of Birth</td> 
+<td><input type="text" id="dob" placeholder="26/May/2000" size="25" required></td> 
+</div>
+</tr>
+<tr> 
+<td><div class="input">Mobile No</td> 
+<td><input type="text" id="lname" placeholder="Ph No" size="25" required></td> 
+</div>
+</tr>
+ 
+<tr> 
+<td><div class="input">Email Address</td> 
+<td><input type="text" id="email" placeholder="Email Address" size="25" required></td> 
+</div>
+</tr>
+ 
+ <tr> 
+<td><div class="input">PRN No</td> 
+<td><input type="text" id="prn" placeholder="19CS01-153" size="25" required></td>
+</div>
+</tr>
+
+ 
+<tr> 
+<td><div class="input">_______________</td>
+<td><input type="password" id="pass" placeholder="Password" size="1" required></td> 
+</div>
+</tr> 
+
+<tr> 
+<td>Gender</td> 
+<td>
+<input type="radio" name="r1" >Male 
+<input type="radio" name="r1" >Female 
+</td> 
+</tr>
+
+<tr>
+<td>DOB</td>
+<td>
+<select>
+<option>DAY</option>
+<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+<option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+<option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+<option>31</option>
+</select>
+<select>
+<option>MONTH</option>
+<option>Jan</option><option>Feb</option><option>Mar</option><option>April</option><option>May</option><option>Jun</option><option>Jul</option><option>Aug</option><option>Sep</option><option>Act</option>
+<option>Nav</option><option>Dec</option>
+</select>
+<select>
+<option>YEAR</option>
+<option>1998</option><option>1999</option><option>2000</option><option>2001</option><option>2002</option><option>2003</option>
+</select>
+<tr> 
+<td>Languages Known</td> 
+<td>
+<input type="checkbox" name="r1" >English
+<input type="checkbox" name="r1" >French
+<br>
+<input type="checkbox" name="r1" >Spanish
+<input type="checkbox" name="r1" >Hindi
+</td> 
+</tr>
+
+<tr> 
+<td>Address</td> 
+<td><textarea id="add" rows="3" cols="22"></textarea></td>
+</tr>
+
+
+<tr> 
+<center><td><td><button id="entry">Register</button></center></td> 
+</tr> 
+</div>
+</form> 
+</table>
+
+
+</style>
+
+	
+<script>
+document.getElementById("pass").style.visibility = "hidden";
+var entry = document.getElementById("entry");
+entry.addEventListener("click", displayDetails); 
+var row = 1; 
+function displayDetails() 
+{
+	var fname = document.getElementById("fname").value; 
+	var fname1 = /^[a-zA-Z]+ [a-zA-Z]+$/;
+	if(!fname.match(fname1))
+	{
+	alert("You have entered an invalid first name");
+	return false;
+	}
+	
+	
+	var lname = document.getElementById("lname").value;
+	var lname1 = /(^[7-9]{1})+([0-9]{9})+$/;
+	if(!lname.match(lname1))
+	{
+	alert("You have entered an invalid ph number");
+	return false;
+	}
+	
+	
+	var dob = document.getElementById("dob").value; 
+	var dobmach = /^[0-9]{2}[\/]{1}[0-9]{2}[\/]{1}[0-9]{4}$/;
+	if(!dob.match(dobmach))
+	{
+	alert("You have entered an invalid DOB!");
+	return false;
+	}
+	
+	
+	
+	
+	var email = document.getElementById("email").value; 
+	
+	var mailformat = /^([a-z 0-9\._]+)@([a-z 0-9\-]+).([a-z]{2}).([a-z]{2})$/;
+	if(!email.match(mailformat))
+	{
+	alert("You have entered an invalid email address!");
+	return false;
+	}
+	
+	
+	
+	//PRN   19ME01-103
+ 	var prn = document.getElementById("prn").value; 
+	var prnmach = /^([0-9]{2})([A-Z]{2})([1-9]{2})-([1-9]{3})$/;
+	if(!prn.match(prnmach))
+	{
+	alert("Invalid PRN!");
+	return false;
+	}
+	
+	var eno = document.getElementById("eno").value;
+	if(!fname || !lname || !email || !dob || !eno)
+	{
+	alert("Please fill all values.....");
+	return;
+	}
+	else
+	{
+	alert("Registration Successfull................... ");
+	return;
+
+	}
+	
+	
+	
+}
+</script>
+<marquee bgcolor="RED" scrolldelay="50" scrollamount="10" truespeed>Website is best viewed in Mozilla Firefox version 12.0.1 and above</marquee>
+<marquee></marquee>
+</body>
+ </html> 
